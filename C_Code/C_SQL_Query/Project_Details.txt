@@ -1,0 +1,112 @@
+C Programming Assignment: SQL-Like Query Parser and Executor
+
+Objective
+
+You are required to write a C program that parses and executes a simplified SQL-like SELECT query.
+The query will work on a "table," where each table is represented by a text file.
+
+The file name corresponds to the table name.
+
+The first line of the file contains the field (column) names, separated by commas.
+
+The following lines contain the records (rows), also separated by commas.
+
+Your program should:
+
+Parse the given query.
+
+Validate that the requested table (file) exists.
+
+Validate that the requested fields exist in the table.
+
+Validate and process the WHERE clause (if present).
+
+If parsing is correct, retrieve and display the requested fields from the file.
+
+Query Format
+
+The query will follow this restricted format:
+
+SELECT field1, field2, ... FROM table_name WHERE fieldX = value;
+
+
+Fields can be one or more, separated by commas.
+
+* can be used to select all fields.
+
+table_name corresponds to a file in the current directory with extension .txt.
+
+WHERE clause supports only simple equality (=) checks on a single field.
+
+Example File (students.txt)
+id,name,age,grade
+1,Alice,20,A
+2,Bob,21,B
+3,Charlie,19,A
+
+Example Queries and Expected Outputs
+Input Query:
+SELECT name,grade FROM students WHERE age=20;
+
+Output:
+Query Parsed Successfully!
+Results:
+name    grade
+Alice   A
+
+Input Query:
+SELECT * FROM students WHERE grade=A;
+
+Output:
+Query Parsed Successfully!
+Results:
+id  name    age grade
+1   Alice   20  A
+3   Charlie 19  A
+
+Input Query:
+SELECT age FROM students WHERE name=Bob;
+
+Output:
+Query Parsed Successfully!
+Results:
+age
+21
+
+Input Query:
+SELECT address FROM students WHERE grade=A;
+
+Output:
+Error: Field 'address' not found in table 'students'.
+
+Input Query:
+SELECT name FROM students WHERE height=180;
+
+Output:
+Error: Field 'height' not found in table 'students'.
+
+Requirements
+
+String Parsing: Use C string functions to parse the query.
+
+File Operations: Open the file, read the first line to extract fields, and then read data rows.
+
+Validation: Ensure fields requested in the SELECT part and WHERE clause exist in the table.
+
+Execution:
+
+If no WHERE clause → return all rows.
+
+If WHERE clause → filter rows based on the condition.
+
+Output: If parsing and validation succeed, print the requested fields and values.
+
+Error Handling: Display appropriate error messages if query format, table, or fields are incorrect.
+
+Assignment Deliverables
+
+A single .c source file implementing the program.
+
+A sample input file (e.g., students.txt).
+
+ 

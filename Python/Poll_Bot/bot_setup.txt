@@ -1,0 +1,31 @@
+Telegram Bot Setup Instructions
+===============================
+
+1. Run your bot locally:
+-----------------------
+Command:
+python poll.py
+
+
+
+2. Install Flask (if using webhooks):
+-------------------------------------
+Command:
+pip install flask
+
+
+
+3. Delete existing webhook (if using polling):
+----------------------------------------------
+Command:
+
+  curl -X POST "https://api.telegram.org/bot8279532303:AAE7YuydI5MRB68P7aRnI74d6RFlom2sJas/deleteWebhook"
+
+Summary:
+--------
+- For running the bot locally using polling:
+  1. Delete webhook using deleteWebhook.
+  2. Run python python_bot.py.
+- For running the bot on a server using webhooks:
+  1. Install Flask.
+  2. Set up a public HTTPS URL to receive Telegram updates.
